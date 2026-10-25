@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@theme inline {
+  --color-surface: var(--surface-base);
+  --color-raised: var(--surface-raised);
+  --color-sunken: var(--surface-sunken);
+  --color-dark: var(--surface-dark);
+  --color-ink: var(--text-primary);
+  --color-ink-muted: var(--text-secondary);
+  --color-inverse: var(--text-inverse);
+  --color-control: var(--border-control);
+  --color-subtle: var(--border-subtle);
+  --color-brand-700: var(--brand-700);
+  --color-brand-600: var(--brand-600);
+  --color-brand-500: var(--brand-500);
+  --color-brand-200: var(--brand-200);
+  --color-brand-100: var(--brand-100);
+  --color-danger-600: var(--danger-600);
+  --color-danger-100: var(--danger-100);
+  --color-success-600: var(--success-600);
+  --color-success-100: var(--success-100);
+  --color-warning-200: var(--warning-200);
+  --color-info-100: var(--info-100);
+  --color-focus: var(--color-focus);
+  --color-topbar: var(--topbar-bg);
+  --color-topbar-ink: var(--topbar-text);
+  --color-topbar-muted: var(--topbar-muted);
+
+  --shadow-neu-raised: var(--neu-raised);
+  --shadow-neu-raised-sm: var(--neu-raised-sm);
+  --shadow-neu-inset: var(--neu-inset);
+  --shadow-neu-flat: var(--neu-flat);
+
+  --radius-card: var(--radius-card);
+  --radius-input: var(--radius-input);
+
+  --ease-standard: var(--ease-standard);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: var(--text-display);
+  --text-display--line-height: 1.15;
+  --text-h1: var(--text-h1);
+  --text-h1--line-height: 1.2;
+  --text-h2: var(--text-h2);
+  --text-h2--line-height: 1.2;
+  --text-h3: var(--text-h3);
+  --text-h3--line-height: 1.25;
+  --text-body: var(--text-body);
+  --text-body--line-height: 1.6;
+}
+
+/* Material Symbols Rounded — yalnız kullanılan glifler, kendi sunucumuzdan (scripts/fetch-icons.mjs). */
+@font-face {
+  font-family: "Material Symbols Rounded";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: block;
+  src: url("/fonts/material-symbols-rounded.woff2") format("woff2");
+}
+
+/* Sabit 1em kutu: font yüklenene kadar ikon adı metin olarak görünmez, kayma (CLS) olmaz. */
+@utility msr {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  user-select: none;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400;
+}
+@utility msr-filled {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400;
+}
+
+/* Odak halkası: 2px + 2px offset, gölge değil (plan 6.1). */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Yüzey yardımcıları (tarihsel adlar korunur): artık düz — kenarlık + hafif gölge (ADR 0005). */
+@utility neu-raised {
+  background-color: var(--surface-raised);
+  box-shadow: var(--neu-raised);
+  border: 1px solid var(--border-subtle);
+}
+@utility neu-raised-sm {
+  background-color: var(--surface-raised);
+  box-shadow: var(--neu-raised-sm);
+  border: 1px solid var(--border-subtle);
+}
+@utility neu-inset {
+  background-color: var(--surface-sunken);
+  border: 1px solid var(--border-subtle);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 8.5rem;
+  }
+  body {
+    background-color: var(--surface-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    color: var(--text-primary);
+  }
+  a {
+    color: inherit;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--brand-200);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Windows Yüksek Karşıtlık: gölgeler düşer, kenarlıklar sistem rengiyle görünür kalır. */
+@media (forced-colors: active) {
+  .neu-raised,
+  .neu-raised-sm,
+  .neu-inset {
+    border: 1px solid CanvasText;
+  }
+}

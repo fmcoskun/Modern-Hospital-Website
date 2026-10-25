@@ -1,0 +1,83 @@
+/*
+ * Tasarım token'ları — projedeki TEK renk/gölge/radius kaynağı.
+ * Düz tasarım sistemi (ADR 0005): beyaz zemin, düz yüzeyler, dönüşümlü açık bölüm zemini;
+ * marka rengi hastane teal'i. Kontrastlar tests/unit/contrast.test.ts ile doğrulanır.
+ */
+:root {
+  /* Yüzeyler */
+  --surface-base: #ffffff; /* sayfa zemini */
+  --surface-raised: #ffffff; /* kart */
+  --surface-sunken: #f3f8f8; /* dönüşümlü bölüm zemini */
+  --surface-dark: #0b3b41; /* koyu bant */
+
+  /* Metin */
+  --text-primary: #1a2329; /* 12,95:1 */
+  --text-secondary: #4b5a63; /* 5,8:1 */
+  --text-inverse: #ffffff;
+
+  /* Kontroller */
+  --border-control: #6b7880; /* beyazda 4,6:1 — WCAG 1.4.11 */
+  --border-subtle: #e3e8ea; /* dekoratif ayraç, kontrol sınırı değil */
+
+  /* Marka */
+  --brand-700: #0b474e;
+  --brand-600: #0f5961; /* 6,5:1 zemin; beyaz metin 8,01:1 */
+  --brand-500: #1f6f78; /* beyaz metin 5,83:1 */
+  --brand-200: #cfe5e7;
+  --brand-100: #e3f0f1;
+
+  /* Durum */
+  --danger-600: #b3261e; /* 5,31:1; beyaz metin 6,54:1 */
+  --danger-100: #fbe4e2;
+  --success-600: #1e6b3a; /* 5,3:1 */
+  --success-100: #def0e3;
+  --warning-200: #f6dc9b; /* yalnız arka plan; metin --text-primary */
+  --info-100: #dfeaf5;
+
+  --color-focus: #0f5961;
+
+  /* Üst acil bilgi çubuğu (koyu) */
+  --topbar-bg: #2b3238;
+  --topbar-text: #e6edf2; /* >12:1 */
+  --topbar-muted: #b9c5ce; /* 8,1:1 */
+
+  /* Düz yüzey gölgeleri (ince kenarlık + hafif gölge) */
+  --neu-raised: 0 1px 2px rgb(26 35 41 / 0.06), 0 4px 12px rgb(26 35 41 / 0.06);
+  --neu-raised-sm: 0 1px 2px rgb(26 35 41 / 0.06);
+  --neu-inset: none;
+  --neu-flat: 0 4px 8px rgb(0 0 0 / 0.1); /* açılır menü */
+
+  /* Radius */
+  --radius-card: 8px;
+  --radius-input: 6px;
+
+  /* Hareket */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-micro: 150ms;
+  --duration-panel: 250ms;
+
+  /* Akışkan tip ölçeği (1,25) */
+  --text-display: clamp(2.5rem, 1.9rem + 2.4vw, 3.5rem);
+  --text-h1: clamp(2rem, 1.7rem + 1.2vw, 2.5rem);
+  --text-h2: clamp(1.625rem, 1.45rem + 0.7vw, 2rem);
+  --text-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --text-body: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --neu-raised: none;
+    --neu-raised-sm: none;
+    --neu-inset: none;
+    --neu-flat: none;
+    --border-subtle: #1a2329;
+    --text-secondary: #2c3940;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-micro: 0ms;
+    --duration-panel: 0ms;
+  }
+}

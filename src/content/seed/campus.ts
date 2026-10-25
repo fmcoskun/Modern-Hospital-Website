@@ -1,0 +1,66 @@
+import type { CampusBuilding } from "@/lib/data/types";
+
+/** Merkez Kampüs (kurgusal). Konumlar sahne birimiyle; kuzey -z yönünde. */
+export const campusBuildings: CampusBuilding[] = [
+  {
+    id: "a-blok",
+    name: "A Blok",
+    description:
+      "Poliklinikler (İç Hastalıkları, Kardiyoloji, Genel Cerrahi), laboratuvar, ameliyathaneler ve yoğun bakım.",
+    href: "/tibbi-birimler/kardiyoloji",
+    kind: "clinic",
+    position: [-10, -8],
+    size: [12, 10, 19],
+    floors: 6,
+  },
+  {
+    id: "b-blok",
+    name: "B Blok",
+    description: "Nöroloji, Göğüs Hastalıkları, Beyin ve Sinir Cerrahisi; radyoloji -1. katta.",
+    href: "/tibbi-birimler/noroloji",
+    kind: "clinic",
+    position: [6, -10],
+    size: [16, 9, 13],
+    floors: 4,
+  },
+  {
+    id: "acil",
+    name: "Acil servis girişi",
+    description: "7/24 açık erişkin ve çocuk acil servisi; ambulans girişi B Blok'un doğu yanında.",
+    href: "/tibbi-birimler/acil-servis",
+    kind: "emergency",
+    position: [17, -4],
+    size: [7, 6, 4.5],
+    floors: 1,
+  },
+  {
+    id: "c-blok",
+    name: "C Blok",
+    description: "Ortopedi, Fizik Tedavi ve Rehabilitasyon, check-up birimi.",
+    href: "/tibbi-birimler/ortopedi-ve-travmatoloji",
+    kind: "clinic",
+    position: [8, 5],
+    size: [11, 10, 9],
+    floors: 3,
+  },
+  {
+    id: "d-blok",
+    name: "D Blok",
+    description: "Kadın Hastalıkları ve Doğum, Çocuk Sağlığı; doğumhane ve yenidoğan yoğun bakım.",
+    href: "/tibbi-birimler/kadin-hastaliklari-ve-dogum",
+    kind: "clinic",
+    position: [-11, 7],
+    size: [10, 12, 10],
+    floors: 3,
+  },
+  {
+    id: "otopark",
+    name: "Kapalı otopark",
+    description: "400 araçlık; engelli park alanları giriş katında, ilk 2 saat ücretsiz.",
+    href: "/hasta-rehberi/ulasim-ve-otopark",
+    kind: "parking",
+    position: [-1, 19],
+    size: [22, 9, 1.4],
+    floors: 1,
+  },
+];
