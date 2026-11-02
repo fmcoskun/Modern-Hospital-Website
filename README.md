@@ -1,8 +1,8 @@
 # ÖZEL FMC HASTANESİ — hastane web sitesi demosu
 
-Kurgusal bir hastane için hazırlanmış portfolyo projesi. Bölüm ve doktor keşfi, uçtan uca **simüle** randevu akışı, hasta rehberi, sağlık içerikleri ve etkileşimli 3D kampüs maketi içerir.
-
 **Live site:** https://modern-hospital-website-one.vercel.app/
+
+Kurgusal bir hastane için hazırlanmış portfolyo projesi. Bölüm ve doktor keşfi, uçtan uca **simüle** randevu akışı, hasta rehberi, sağlık içerikleri ve etkileşimli 3D kampüs maketi içerir.
 
 > **Tüm kurum, kişi, adres, telefon ve içerikler kurgusaldır.** Formlar yalnız doğrular; hiçbir kişisel veri saklanmaz, loglanmaz veya üçüncü tarafa gönderilmez. Site arama motorlarında listelenmez (`noindex`).
 
